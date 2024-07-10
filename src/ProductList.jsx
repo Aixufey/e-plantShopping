@@ -328,7 +328,7 @@ function ProductList() {
             </div>
 
             {showCart ? (
-                <Cart />
+                <Cart onContinueShopping={handleShowCart} />
             ) : (
                 <div className="product-grid">
                     {plantsArray.map((item, index) => (
