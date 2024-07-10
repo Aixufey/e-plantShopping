@@ -346,7 +346,8 @@ function ProductList() {
                         >
                             <h1>{item.category}</h1>
                             <div className="product-list">
-                                {item.plants.map((plant, index) => (
+                                {item.plants.map((plant, index) => {
+                                    return (
                                     <div className="product-card" key={index}>
                                         <h3 className="product-title">
                                             {plant.name}
@@ -361,15 +362,17 @@ function ProductList() {
                                         </p>
                                         <p>{plant.description}</p>
                                         <button
-                                            className="product-button"
+                                                className={`product-button ${addedToCart[plant.name] ?'added-to-cart' : ''}`}
                                             onClick={() =>
                                                 handleAddToCart(plant)
                                             }
+                                            // Access key in addedToCart object to determine if item is already in cart
+                                            disabled={addedToCart[plant.name]}
                                         >
                                             Add to Cart
                                         </button>
                                     </div>
-                                ))}
+                                )})}
                             </div>
                         </div>
                     ))}

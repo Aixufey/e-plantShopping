@@ -15,7 +15,9 @@ function App() {
   return (
     <div className="app-container">
       <div className={`landing-page ${showProductList ? 'fade-out' : ''}`}>
-        <div className="background-image"></div>
+        <div className="background-image">
+          <img src="https://images.unsplash.com/photo-1495908333425-29a1e0918c5f?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Plant Nursery" />
+        </div>
         <div className="content">
          <div className="landing_content">
          <h1>Welcome To Paradise Nursery</h1>
