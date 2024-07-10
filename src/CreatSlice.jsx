@@ -16,10 +16,10 @@ export const CreatSlice = createSlice({
       }
     },
     removeItem: (state, action) => {
-      const { name } = action.payload;
-      state.items = state.items.filter(item => item.name !== name)
+      state.items = state.items.filter(item => item.name !== action.payload)
     },
     updateQuantity: (state, action) => {
+      // Payload is an object containing item name and quantity information from increment and decrement handlers
       const { name, quantity } = action.payload;
       const itemToUpdate = state.items.find(item => item.name === name);
       if (itemToUpdate) {
