@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./ProductList.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "./CreatSlice";
 import Cart from "./CartItem";
 function ProductList() {
     const [showCart, setShowCart] = useState(false);
     const [addedToCart, setAddedToCart] = useState({});
+    const cart = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
 
     const handleAddToCart = (item) => {
@@ -287,14 +288,13 @@ function ProductList() {
                 </div>
                 <div style={styleObjUl}>
                     <div>
-                        {" "}
                         <a href="#" style={styleA}>
                             Plants
                         </a>
                     </div>
                     {/* Cart */}
                     <div onClick={handleShowCart}>
-                        {" "}
+                        <span className="cart_quantity_count">{ cart.length }</span>
                         <a href="#" style={styleA}>
                             <h1 className="cart">
                                 <svg
