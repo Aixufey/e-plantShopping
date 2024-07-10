@@ -8,8 +8,10 @@ const Cart = ({ onContinueShopping }) => {
   const dispatch = useDispatch();
 
   // Calculate total amount for all products in the cart
+  // Replace '$' with '' before multiplying by quantity to avoid string parsing errors
+  // Use reduce() to calculate the total cost of all items, multiplying each item's cost by its quantity
   const calculateTotalAmount = () => {
- 
+    return cart.reduce((totalCost, item) => totalCost + (Number(item.cost.replace('$', '')) * item.quantity), 0);
   };
 
   const handleContinueShopping = (e) => {
