@@ -6,7 +6,7 @@ import Cart from "./CartItem";
 function ProductList() {
     const [showCart, setShowCart] = useState(false);
     const [addedToCart, setAddedToCart] = useState({});
-    const cart = useSelector(state => state.cart.items);
+    const cart = useSelector((state) => state.cart.items);
     const dispatch = useDispatch();
 
     const handleAddToCart = (item) => {
@@ -20,6 +20,10 @@ function ProductList() {
 
     const handleShowCart = () => {
         setShowCart(!showCart);
+    };
+
+    const handleTotalItems = () => {
+        return cart.reduce((total, item) => total + item.quantity, 0);
     };
 
     const plantsArray = [
@@ -294,8 +298,10 @@ function ProductList() {
                     </div>
                     {/* Cart */}
                     <div onClick={handleShowCart}>
-                        <span className="cart_quantity_count">{ cart.length }</span>
                         <a href="#" style={styleA}>
+                            <span className="cart_quantity_count">
+                                {handleTotalItems()}
+                            </span>
                             <h1 className="cart">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
